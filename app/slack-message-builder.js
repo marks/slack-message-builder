@@ -21,8 +21,13 @@ class SlackMessageBuilder {
   }
 
   bind_events() {
+    // On "Build" button click
     this.$input
       .find(".js-build")
+      .on("click", this._parse_message.bind(this));
+    // On any change
+    this.$input
+      .find("textarea.js-payload")
       .on("click", this._parse_message.bind(this));
   }
 
